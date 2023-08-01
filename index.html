@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 
     <script>
-        console.log('test');
+        // console.log('test');
 
 
         function getComputerChoice() {
@@ -17,21 +19,38 @@
             //returns random choice of either paper, rock or scissor
             //RANDOM
             //in string, apparently.
-            console.log("The computer selected: "+randomChoice);
+            // console.log("The computer selected: "+randomChoice);
             //return randomChoice, to be used directly in playRound()
             return randomChoice;
         }
 
         function getPlayerChoice() {
-            //get case insensitve player input
+            let playerSelection=prompt("Select either rock, paper, or scissors");
+            playerSelection=playerSelection.toLowerCase();
+            switch (playerSelection) {
+                case 'rock':
+                    return 'rock';
+                    break;
+                case 'paper':
+                    return 'paper';
+                    break;
+                case 'scissors':
+                    return 'scissors';
+                    break;
+                default:
+                    return 'incorrect';   
+            }
+
+
+            //get case insensitive player input
             //if ALL CAPS, small or mix
             //convert to small
             //return playerSelection, to be used directly in playRound()
         }
         // playerSelection is case insenstive, ie user input
         function playRound(playerSelection, computerSelection) {
-            
-            
+
+
             //i choose one choice
             //the computer chooses another
             //me vs the computer, the conditionals will reflect that
@@ -61,21 +80,18 @@
         }
         //this is the main game function that will loop over and over
         function game() {
-
-            getPlayerChoice();
-            getComputerChoice();
-
-            for (let i=1;i<=5;i++) {
-                console.log("ROUND "+i);
-
+            for (let i = 1; i <= 5; i++) {
+                console.log("ROUND " + i);
+                playRound();
             }
         }
 
 
 
-        game();
-        console.log("END OF GAME");
+        //game();
+        // console.log("END OF GAME");
     </script>
 
 </body>
+
 </html>
