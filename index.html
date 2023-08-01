@@ -18,28 +18,63 @@
             //RANDOM
             //in string, apparently.
             console.log("The computer selected: "+randomChoice);
+            //return randomChoice, to be used directly in playRound()
             return randomChoice;
+        }
+
+        function getPlayerChoice() {
+            //get case insensitve player input
+            //if ALL CAPS, small or mix
+            //convert to small
+            //return playerSelection, to be used directly in playRound()
         }
         // playerSelection is case insenstive, ie user input
         function playRound(playerSelection, computerSelection) {
+            
+            
             //i choose one choice
             //the computer chooses another
+            //me vs the computer, the conditionals will reflect that
 
+            //if
             //rock vs rock -> draw
+            //if
             //rock vs paper -> paper
+            //if
             //rock vs scissor -> rock
 
+            //if
             //paper vs rock -> paper
+            //if
             //paper vs paper -> draw
+            //if
             //paper vs scissor -> scissor
 
+            //if
             //scissor vs rock -> rock
+            //if
             //scissor vs paper -> scissor
+            //if
             //scissor vs scissor -> draw
 
 
         }
+        //this is the main game function that will loop over and over
+        function game() {
 
+            getPlayerChoice();
+            getComputerChoice();
+
+            for (let i=1;i<=5;i++) {
+                console.log("ROUND "+i);
+
+            }
+        }
+
+
+
+        game();
+        console.log("END OF GAME");
     </script>
 
 </body>
