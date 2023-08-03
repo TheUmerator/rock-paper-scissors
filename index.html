@@ -74,6 +74,43 @@
             //return playerSelection, to be used directly in playRound()
         }
         // playerSelection is case insenstive, ie user input
+
+
+        function announcer(result, playerSelection, computerSelection) {
+            switch (result) {
+                case 0:
+                    console.log("It's a draw!");
+                    break;
+                case 1:
+                    console.log("You win! " + playerSelection + " beats " + computerSelection);
+                    break;
+                case 2:
+                    console.log("You lose! " + computerSelection + " beats " + playerSelection);
+                    break;
+            }
+
+        }
+        //if
+        //rock vs rock -> draw
+        //if
+        //rock vs paper -> paper
+        //if
+        //rock vs scissor -> rock
+
+        //if
+        //paper vs rock -> paper
+        //if
+        //paper vs paper -> draw
+        //if
+        //paper vs scissor -> scissor
+
+        //if
+        //scissor vs rock -> rock
+        //if
+        //scissor vs paper -> scissor
+        //if
+        //scissor vs scissor -> draw
+
         function playRound(playerSelection, computerSelection) {
             let result = 0;
             //0, draw
@@ -82,85 +119,67 @@
             if (playerSelection == 'rock' && computerSelection == 'rock') {
                 result = 0;
 
-            } 
-            else if (playerSelection == 'rock' && computerSelection == 'paper') {
+            } else if (playerSelection == 'rock' && computerSelection == 'paper') {
                 result = 2;
                 return result;
-            } 
-            else if (playerSelection == 'rock' && computerSelection == 'scissor') {
+            } else if (playerSelection == 'rock' && computerSelection == 'scissor') {
                 result = 1;
                 return result;
-            } 
-
-
-            else if (playerSelection == 'paper' && computerSelection == 'rock') {
+            } else if (playerSelection == 'paper' && computerSelection == 'rock') {
                 result = 1;
                 return result;
-            } 
-            else if (playerSelection == 'paper' && computerSelection == 'paper') {
+            } else if (playerSelection == 'paper' && computerSelection == 'paper') {
                 result = 0;
                 return result;
-            } 
-            else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+            } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
                 result = 2;
                 return result;
-            } 
-
-
-            else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+            } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
                 result = 2;
                 return result;
-            } 
-            else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+            } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
                 result = 1;
                 return result;
-            } 
-            else if (playerSelection == 'scissors' && computerSelection == 'scissors') {
+            } else if (playerSelection == 'scissors' && computerSelection == 'scissors') {
                 result = 0;
                 return result;
             }
-
-            function announcer(result) {
-
-            }
-            //if
-            //rock vs rock -> draw
-            //if
-            //rock vs paper -> paper
-            //if
-            //rock vs scissor -> rock
-
-            //if
-            //paper vs rock -> paper
-            //if
-            //paper vs paper -> draw
-            //if
-            //paper vs scissor -> scissor
-
-            //if
-            //scissor vs rock -> rock
-            //if
-            //scissor vs paper -> scissor
-            //if
-            //scissor vs scissor -> draw
-
-
         }
         //this is the main game function that will loop over and over
         function game() {
+            let playerSelection, computerSelection;
+
+            let result = 0;
+            let playerScore=0;
+            let computerScore=0;
+
             for (let i = 1; i <= 5; i++) {
                 console.log("ROUND " + i);
-                playRound();
+                playerSelection = getPlayerChoice();
+                computerSelection = getComputerChoice();
+
+                console.log(playerSelection);
+                console.log(computerSelection);
+                
+                result=playRound();
+
+                switch (result) {
+                    case 0;
+
+                }
+                //if result is 0, play again
+                //if result is 1, add to playerScore
+                //if result is 2, add to computerScore
             }
         }
 
         let playerSelection = getPlayerChoice();
         let computerSelection = getComputerChoice();
-        let result=0;
+        let result = 0;
         console.log(playerSelection);
         console.log(computerSelection);
 
-        result=playRound(playerSelection,computerSelection);
+        result = playRound(playerSelection, computerSelection);
         console.log(result);
         console
     </script>
