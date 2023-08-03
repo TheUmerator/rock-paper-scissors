@@ -15,7 +15,7 @@
 
         function getComputerChoice() {
             let randomChoice, randNum;
-            randNum=Math.floor(Math.random() * 3)+1;
+            randNum = Math.floor(Math.random() * 3) + 1;
             //returns random choice of either paper, rock or scissor
             //RANDOM
             //in string, apparently.
@@ -26,24 +26,24 @@
 
             switch (randNum) {
                 case 1:
-                    randomChoice='rock';
+                    randomChoice = 'rock';
                     return randomChoice;
                     break;
 
                 case 2:
-                    randomChoice='paper';
+                    randomChoice = 'paper';
                     return randomChoice;
                     break;
-                    
+
                 case 3:
-                    randomChoice='scissors';
+                    randomChoice = 'scissors';
                     return randomChoice;
-                    break;                    
+                    break;
             }
         }
 
         function getPlayerChoice() {
-            let check=0;
+            let check = 0;
             while (check == 0) {
                 let playerSelection = prompt("Select either rock, paper, or scissors");
                 let check = 0;
@@ -75,12 +75,54 @@
         }
         // playerSelection is case insenstive, ie user input
         function playRound(playerSelection, computerSelection) {
+            let result = 0;
+            //0, draw
+            //1, point for me
+            //2, point for thee
+            if (playerSelection == 'rock' && computerSelection == 'rock') {
+                result = 0;
+
+            } 
+            else if (playerSelection == 'rock' && computerSelection == 'paper') {
+                result = 2;
+                return result;
+            } 
+            else if (playerSelection == 'rock' && computerSelection == 'scissor') {
+                result = 1;
+                return result;
+            } 
 
 
-            //i choose one choice
-            //the computer chooses another
-            //me vs the computer, the conditionals will reflect that
+            else if (playerSelection == 'paper' && computerSelection == 'rock') {
+                result = 1;
+                return result;
+            } 
+            else if (playerSelection == 'paper' && computerSelection == 'paper') {
+                result = 0;
+                return result;
+            } 
+            else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+                result = 2;
+                return result;
+            } 
 
+
+            else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+                result = 2;
+                return result;
+            } 
+            else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+                result = 1;
+                return result;
+            } 
+            else if (playerSelection == 'scissors' && computerSelection == 'scissors') {
+                result = 0;
+                return result;
+            }
+
+            function announcer(result) {
+
+            }
             //if
             //rock vs rock -> draw
             //if
@@ -113,11 +155,13 @@
         }
 
         let playerSelection = getPlayerChoice();
-        let computerSelection=getComputerChoice();
-
+        let computerSelection = getComputerChoice();
+        let result=0;
         console.log(playerSelection);
         console.log(computerSelection);
-        console.log();
+
+        result=playRound(playerSelection,computerSelection);
+        console.log(result);
         console
     </script>
 
