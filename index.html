@@ -13,15 +13,33 @@
     <script>
         // console.log('test');
 
-
         function getComputerChoice() {
-            let randomChoice;
+            let randomChoice, randNum;
+            randNum=Math.floor(Math.random() * 3)+1;
             //returns random choice of either paper, rock or scissor
             //RANDOM
             //in string, apparently.
             // console.log("The computer selected: "+randomChoice);
             //return randomChoice, to be used directly in playRound()
-            return randomChoice;
+            //use w3 random integer code to return 1 , 2 or 3
+            //if 1, rock, 2 paper, 3 scissors.
+
+            switch (randNum) {
+                case 1:
+                    randomChoice='rock';
+                    return randomChoice;
+                    break;
+
+                case 2:
+                    randomChoice='paper';
+                    return randomChoice;
+                    break;
+                    
+                case 3:
+                    randomChoice='scissors';
+                    return randomChoice;
+                    break;                    
+            }
         }
 
         function getPlayerChoice() {
@@ -95,8 +113,11 @@
         }
 
         let playerSelection = getPlayerChoice();
+        let computerSelection=getComputerChoice();
 
         console.log(playerSelection);
+        console.log(computerSelection);
+        console.log();
         console
     </script>
 
