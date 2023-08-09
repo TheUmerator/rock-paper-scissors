@@ -161,4 +161,4 @@
           console.log("You lose!");
       }
   
-      game();
+    //   game();
