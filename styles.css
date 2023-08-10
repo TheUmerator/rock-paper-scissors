@@ -1,0 +1,29 @@
+
+.game-container{
+
+}
+.vs-container{
+    border: 2px solid red;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.your-choices {
+    display: flex;
+    flex-direction: column;
+}
+.score-container{
+    border: 2px solid green;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.your-score, .computer-score {
+    text-align: center;
+}
+.decider-container{
+    border: 2px solid blue;
+    text-align: center;
+}
+
+ 
