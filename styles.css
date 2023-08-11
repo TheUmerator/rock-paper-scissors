@@ -14,7 +14,6 @@
 .your-choices {
     display: flex;
     flex-direction: column;
-    padding: 5px;
 }
 .score-container{
     border: 2px solid green;
