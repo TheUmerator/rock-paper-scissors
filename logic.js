@@ -1,6 +1,6 @@
     // console.log('test');
     // let buttonChoice='';
-    const playerButton = document.querySelectorAll('button');
+    // const playerButton = document.querySelectorAll('button');
 
 
 
@@ -35,9 +35,7 @@
 
     function getPlayerChoice(playerSelection) {
       // const playerButton = document.querySelectorAll('button');
-      let check = 0;
-      while (check == 0) {
-        // let playerSelection;
+      // while (check == 0) {
         playerSelection = playerSelection.toLowerCase();
 
 
@@ -57,7 +55,7 @@
           default:
             console.log("Enter the correct choice.");
         }
-      }
+      // }
 
       // get case insensitive player input
       // if ALL CAPS, small or mix
@@ -116,64 +114,80 @@
         return result;
       }
     }
+
+
+    // function logScore(result,playerScore,computerScore) {
+    //   switch (result) {
+    //     case 0:
+    //       break;
+    //     case 1:
+    //       playerScore++;
+    //       console.log('player score increased to ',playerScore);
+    //       break;
+    //     case 2:
+    //       computerScore++;
+    //       console.log('Computer score increased to ',computerScore);
+    //       break;
+    //   }
+    // }
     //this is the main game function that will loop over and over
-    function game() {
-      let playerSelection='', computerSelection;
+    // function game() {
+    //   let playerSelection='', computerSelection;
 
-      let result = 0;
-      let playerScore = 0;
-      let computerScore = 0;
-      let i = 1;
+    //   let result = 0;
+    //   let playerScore = 0;
+    //   let computerScore = 0;
+    //   let i = 1;
 
-      //the logic that plays 5 rounds
-
-
-      // while (i <= 5) {
-      //   console.log("ROUND " + i);
+    //   //the logic that plays 5 rounds
 
 
-      const playerButton = document.querySelectorAll('button');
-      playerButton.forEach(button => {
-        button.addEventListener('click', () => {
-          console.log(button.innerHTML);
-          playerSelection = button.innerHTML;
-        })
-      });
+    //   // while (i <= 5) {
+    //   //   console.log("ROUND " + i);
+
+
+    //   const playerButton = document.querySelectorAll('button');
+    //   playerButton.forEach(button => {
+    //     button.addEventListener('click', () => {
+    //       console.log(button.innerHTML);
+    //       playerSelection = button.innerHTML;
+    //     })
+    //   });
 
 
 
-      playerSelection = getPlayerChoice(playerSelection);
+    //   playerSelection = getPlayerChoice(playerSelection);
 
 
-      computerSelection = getComputerChoice();
+    //   computerSelection = getComputerChoice();
 
-      console.log(playerSelection);
-      console.log(computerSelection);
+    //   console.log(playerSelection);
+    //   console.log(computerSelection);
 
-      result = playRound(playerSelection, computerSelection);
+    //   result = playRound(playerSelection, computerSelection);
 
-      console.log(result);
-      switch (result) {
-        case 0:
-          break;
-        case 1:
-          playerScore++;
-          i++;
-          break;
-        case 2:
-          computerScore++;
-          i++;
-          break;
-      }
+    //   console.log(result);
+    //   switch (result) {
+    //     case 0:
+    //       break;
+    //     case 1:
+    //       playerScore++;
+    //       i++;
+    //       break;
+    //     case 2:
+    //       computerScore++;
+    //       i++;
+    //       break;
+    //   }
       //if result is 0, play again
       //if result is 1, add to playerScore
       //if result is 2, add to computerScore
 
 
-      announcer(result, playerSelection, computerSelection);
-      console.log("Your score: " + playerScore);
-      console.log("Computer score: " + computerScore);
-    }
+    //   announcer(result, playerSelection, computerSelection);
+    //   console.log("Your score: " + playerScore);
+    //   console.log("Computer score: " + computerScore);
+    // }
 
 
     //   if ((playerScore > computerScore) && (i = 5))
@@ -182,4 +196,4 @@
     //     console.log("You lose!");
     // }
 
-    game();
+    // game();
