@@ -1,85 +1,66 @@
-/*
-
-//cycle through buttons and select player choice
-let buttonChoice='';    //to prevent getPlayerChoice() from throwing and 'undefined' input error
-                        //when used with .toLowerCase()
-const playerButton = document.querySelectorAll('button');
-playerButton.forEach(button => {
-    button.addEventListener('click', () => {
-            // console.log(button.innerHTML);
-            buttonChoice=button.innerHTML;
-    })
-});
-console.log(buttonChoice);
-// playerButton.addEventListener('click',console.log(getPlayerChoice(buttonChoice)));
-*/
-
-//instead of all querry selectors. just one button. rock
-let playerChoice, computerChoice, result;
-let playerScore = 0,
-    computerScore = 0;
-let gameCompleted = false;
-const yScore = document.querySelector('.your-score');
-const pcScore = document.querySelector('.computer-score');
-
-// const playerSelection=document.querySelectorAll('.your-choices');
-// const computerSelection=document.querySelectorAll('.computer-choices');
-
-const decider = document.querySelector('.decider-container');
-
-
+const playerScoreElement = document.querySelector('.player-score');
+const computerScoreElement = document.querySelector('.computer-score');
+const deciderElement = document.querySelector('#decider-container');
 const playerButtons = document.querySelectorAll('button');
+
+let playerChoice,
+  computerChoice,
+  playerScore = 0,
+  computerScore = 0,
+  gameCompleted = false;
+
 playerButtons.forEach(gameButton => {
+  gameButton.addEventListener('click', () => {
+    playerChoice = gameButton.innerHTML.toLowerCase();
+    computerChoice = getComputerChoice();
 
-    gameButton.addEventListener('click', () => {
-        playerChoice = getPlayerChoice(gameButton.innerHTML);
-        // console.log('player '+playerChoice);
+    const result = playRound(playerChoice, computerChoice);
 
-        //so that the game will play only if player
-        //presses the button
-        computerChoice = getComputerChoice();
+    announcer(result, playerChoice, computerChoice);
 
-        // console.log('computer '+computerChoice);
-        console.log(playRound(playerChoice, computerChoice));
+    updateScores(result);
 
-        result = playRound(playerChoice, computerChoice);
-        announcer(result, playerChoice, computerChoice);
+    if (gameCompleted) {
+      resetGame();
+    }
 
-        if (gameCompleted == true) {
-            playerScore = 0;
-            computerScore = 0;
-            yScore.textContent = playerScore;
-            pcScore.textContent = computerScore;
-            
-            gameCompleted=false;
-            decider.textContent='';
-        }
-        switch (result) {
-            case 0:
-                break;
-            case 1:
-                playerScore++;
-                console.log('player score increased to ', playerScore);
-                yScore.textContent = playerScore;
-                break;
-            case 2:
-                computerScore++;
-                console.log('Computer score increased to ', computerScore);
-                pcScore.textContent = computerScore;
-                break;
-        }
-        if ((playerScore > computerScore) && (playerScore == 5)) {
-            decider.textContent = 'You WIN';
-            gameCompleted = true;
-
-        } else if ((playerScore < computerScore) && (computerScore == 5)) {
-            decider.textContent = 'You LOSE';
-            gameCompleted = true;
-        }
-    })
-
+    if (playerScore === 5 || computerScore === 5) {
+      endGame();
+    }
+  });
 });
 
+function updateScores(result) {
+  switch (result) {
+    case 1:
+      playerScore++;
+      console.log('Player score increased to', playerScore);
+      playerScoreElement.textContent = playerScore;
+      break;
+    case 2:
+      computerScore++;
+      console.log('Computer score increased to', computerScore);
+      computerScoreElement.textContent = computerScore;
+      break;
+  }
+}
 
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
+  playerScoreElement.textContent = 0;
+  computerScoreElement.textContent = 0;
+  gameCompleted = false;
+  deciderElement.textContent = '';
+  deciderElement.classList.remove('decider-container');
+}
 
-//it works with one button, playerChoice is sent as rock
+function endGame() {
+  deciderElement.classList.add('decider-container');
+  if (playerScore > computerScore) {
+    deciderElement.textContent = 'You WIN';
+  } else {
+    deciderElement.textContent = 'You LOSE';
+  }
+  gameCompleted = true;
+}
